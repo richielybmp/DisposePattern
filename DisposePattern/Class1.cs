@@ -3,14 +3,21 @@ using System.IO;
 
 namespace DisposePattern
 {
-    class myClass : IDisposable
+    class MyClass : IDisposable
     {
         StreamReader reader;
         bool disposed = false;
 
-        public myClass(string caminho)
+        public MyClass(string caminho)
         {
+            // Pode disparar uma exeção se o não tiver permissão para acessar o caminho.
             reader = new StreamReader(caminho);
+        }
+        
+        //Finalizer / Destructor
+        ~MyClass()
+        {
+            Dispose(false);
         }
         // Flag: Check if dispose method has already been called?
         // type uses unmanaged resource
@@ -35,12 +42,6 @@ namespace DisposePattern
             }
             // Free any unmanaged objects here.
             disposed = true;
-        }
-
-        //Finalizer a.k.a Destructor
-        ~myClass()
-        {
-            Dispose(false);
         }
     }
 }
