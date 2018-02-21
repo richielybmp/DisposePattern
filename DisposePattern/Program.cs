@@ -6,7 +6,7 @@ namespace DisposePattern
     {
         static void Main(string[] args)
         {
-            using (myClass classe = new myClass("c://"))
+            using (MyClass classe = new MyClass("c://"))
             {
 
             }
