@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DisposePattern
 {
@@ -10,6 +6,11 @@ namespace DisposePattern
     {
         static void Main(string[] args)
         {
+            using (myClass classe = new myClass())
+            {
+
+            }
+            Console.ReadLine();
         }
     }
 }
