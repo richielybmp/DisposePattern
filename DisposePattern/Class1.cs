@@ -5,14 +5,15 @@ namespace DisposePattern
 {
     class myClass : IDisposable
     {
-        public myClass()
-        {
+        StreamReader reader;
+        bool disposed = false;
 
+        public myClass(string caminho)
+        {
+            reader = new StreamReader(caminho);
         }
         // Flag: Check if dispose method has already been called?
-        bool disposed = false;
         // type uses unmanaged resource
-        StreamReader reader;
         // Public implementation of Dispose pattern callable by consumers.
         public void Dispose()
         {
